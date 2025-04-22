@@ -72,7 +72,7 @@ This tree structure inherently maintains the parent-child relationships as defin
 .Pp
 These structures are populated by functions within
 .Pa file_utils.cpp / .h
-after the WAD header and descriptors are read. This separation of concerns facilitates modularity and testing. Simple structs mirroring the on-disk format are used initially to hold the header and descriptor data read from the file.
+after the WAD header and descriptors are read. This separation of concerns allows easier testing. Simple structs for the on-disk format are used to hold the header and descriptor data read from the file.
 .Sh LIBRARY FUNCTIONS (Wad Class)
 The
 .Nm Wad
@@ -158,6 +158,69 @@ and
 to handle the common logic of instantiating a new
 .Bq ElementNode ,
 adding it to the tree and hashmap, and updating relevant parent/child links.
+.El
+.Ss Helper Functions (file_utils)
+These functions, defined in
+.Pa file_utils.cpp
+and declared in
+.Pa file_utils.h ,
+assist in building and managing the in-memory representation of the WAD structure.
+.Bl -tag -width -indent
+.It Fn get_cwd ""
+Retrieves the current working directory of the process using the POSIX
+.Fn getcwd
+function. Returns the path as a
+.Nm std::string ,
+or an empty string on failure.
+.It Fn printTree "const ElementNode* node, int indent = 0"
+Recursively traverses the
+.Bq ElementNode
+tree starting from the given
+.Ar node
+and prints its structure to standard output. Uses indentation to visualize the hierarchy. Primarily used for debugging.
+.It Fn extractStartPrefix "const string& name"
+Checks if the input string
+.Ar name
+ends with the suffix "_START". If it does, returns a pair containing
+.Dv true
+and the portion of the string before the suffix. Otherwise, returns a pair containing
+.Dv false
+and an empty string. Used to identify namespace start markers.
+.It Fn extractEndPrefix "const string& name"
+Checks if the input string
+.Ar name
+ends with the suffix "_END". If it does, returns a pair containing
+.Dv true
+and the portion of the string before the suffix. Otherwise, returns a pair containing
+.Dv false
+and an empty string. Used to identify namespace end markers.
+.It Fn printElementStack "std::vector<ElementNode*> stack"
+Iterates through a vector (presumably representing the stack used during tree construction) of
+.Bq ElementNode
+pointers and prints the name and child count of each element to standard output. Primarily used for debugging the tree building process.
+.It Fn buildTreeFromDescriptors "const std::vector<Descriptor>& descriptors"
+Constructs the hierarchical
+.Bq ElementNode
+tree representing the WAD file structure from a flat vector of
+.Bq Descriptor
+structs read from the WAD file. It processes each descriptor, determining its type (content, map, namespace start/end) based on naming conventions (e.g., "_START", "_END", map markers). It uses an internal stack to manage the current directory level during construction. Returns a pointer to the root
+.Bq ElementNode
+of the constructed tree.
+.It Fn buildMapFromElementTree "ElementNode * root"
+Takes the root
+.Bq ElementNode
+of the WAD structure tree and constructs a hashmap (
+.Nm std::map<string, ElementNode *> )
+that maps full path strings (e.g., "/MAPS/E1M1/TEXTURES") to their corresponding
+.Bq ElementNode
+pointers. This allows efficient path lookups. Returns the populated map.
+.It Fn buildMapElementHelper "ElementNode * root, map<string, ElementNode *> &elementMap, string path"
+A recursive helper function used by
+.Fn buildMapFromElementTree .
+It performs a depth-first traversal of the
+.Bq ElementNode
+tree, constructing the full path for each node and inserting the path-node pair into the provided
+.Ar elementMap .
 .El
 .Sh DAEMON IMPLEMENTATION (wadfs main)
 The main executable
@@ -410,7 +473,7 @@ Root directory edge cases: Initially, the path separation utility incorrectly ha
 FUSE write callback implementation: An early bug involved incorrect handling of offsets or lengths in the `wad_write` callback, leading to data corruption or incorrect file sizes after writing. This was resolved by carefully aligning the FUSE write parameters with the `Wad::writeToFile` logic, especially concerning how new data might replace or extend existing lump data. (The user input was cut off here).
 .El
 .Sh VIDEO DEMONSTRATION
-A screencast demonstrating the build process, mounting the filesystem, and executing test commands might be available. [Link Here if applicable]
+https://youtu.be/UTsEfpX_D8g
 .Sh REFERENCES
 .Bl -tag -width Ds -compact
 .It Project 3 Report Guidelines PDF
