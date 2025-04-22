@@ -50,9 +50,6 @@ struct ElementNode {
     return info;
   }
   ElementNode(const ElementNode&) = delete;
-  ElementNode& operator=(const ElementNode&) = delete;
-  ElementNode(ElementNode&&) = delete;
-  ElementNode& operator=(ElementNode&&) = delete;
 };
 
 inline uint32_t getDescriptorNameType(std::string name){

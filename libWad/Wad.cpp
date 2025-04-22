@@ -22,18 +22,6 @@ vector<string> Wad::seperate_path(const string &path){
   return tokens;
 }
 
-bool Wad::isValidContentName(string & path){
-// cannot have E#M#, _START, _END, CANNOT BE GREATER THEN 8 CHARACTERS!
-
-  return false;
-} 
-
-bool Wad::isValidDirectoryName(string & path){
-  // has E#M# 
-
-  return false;
-} 
-
 void Wad::print(){
   cout << "==== WAD " << absolutePath << " ====\n" 
   << "HEADER: \n"

@@ -17,9 +17,5 @@ void buildMapElementHelper(ElementNode * root, std::map<std::string, ElementNode
 
 std::map<std::string, ElementNode*> buildMapFromElementTree(ElementNode * root);
 
-void cleanupElementMap(std::map<std::string, ElementNode*>& elementMap);
-
-void cleanupElementMap(std::map<std::string, ElementNode*>& elementMap);
-
 void printTree(const ElementNode* node, int indent);
 

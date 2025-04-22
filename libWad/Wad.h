@@ -29,14 +29,11 @@ class Wad {
 
   int loadPhysicalFile(const string &path); // get the header and descriptors from file
   Wad(const string & path); 
-  bool isValidContentName(string & path); // cannot have E#M#, _START, _END, CANNOT BE GREATER THEN 8 CHARACTERS!
-  bool isValidDirectoryName(string & path); // has E#M# 
 
   vector<string> seperate_path(const string &path);
 
   string trimPath(const string &path);
   uint32_t readWadData(char *buffer, uint32_t length, uint32_t offset);
-  int writeWadData(const char * buffer, uint32_t length, uint32_t offset);
   bool pathExists(const string &path);
 
   bool saveWad(); // save header and descriptors from element node list 

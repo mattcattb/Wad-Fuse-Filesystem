@@ -1,0 +1,423 @@
+.Dd April 22, 2025
+.Dt WADFS 1
+.Os Linux
+.Sh NAME
+.Nm wadfs
+.Nd A FUSE-based file system for interacting with WAD files.
+.Sh SYNOPSIS
+.Nm wadfs
+.Op Fl s
+.Ar wad_file_path
+.Ar mount_point
+.Sh DESCRIPTION
+.Nm wadfs
+is a FUSE (Filesystem in Userspace) based file system designed to mount and interact with WAD files, commonly associated with games like DOOM. It allows users to browse the contents of a WAD file as if it were a standard directory structure and perform file operations like reading, writing, creating files, and creating directories within the WAD's virtual structure. Changes made through the FUSE interface are persisted back to the original WAD file.
+.Pp
+The filesystem implementation relies on parsing the WAD header and descriptor lump to build an in-memory representation of the file structure using a tree of
+.Bq ElementNode
+structs and a hashmap for efficient path lookups. FUSE callbacks map standard filesystem operations (like
+.Cm ls ,
+.Cm cat ,
+.Cm mkdir ,
+.Cm touch )
+to methods provided by the underlying
+.Nm Wad
+C++ class, which handles the manipulation of the WAD data and structure.
+.Sh FILE PATHS
+The source code is organized as follows:
+.Bl -tag -width "wadfs/fuse_program.cpp" -indent
+.It Pa wadfs/fuse_program.cpp
+Main FUSE program entry point and callback setup.
+.It Pa wadfs/Makefile
+Makefile for building the main FUSE executable.
+.It Pa libWad/Wad.cpp
+Implementation of the
+.Nm Wad
+class, containing the core logic for WAD manipulation.
+.It Pa libWad/Wad.h
+Header file for the
+.Nm Wad
+class.
+.It Pa libWad/file_utils.cpp
+Utility functions for building the internal filesystem structure (tree and hashmap) from WAD descriptors.
+.It Pa libWad/file_utils.h
+Header file for
+.Nm file_utils .
+.It Pa libWad/WadStructure.h
+Header defining core data structures like
+.Bq ElementNode
+and
+.Bq Descriptor .
+.It Pa libWad/Makefile
+Makefile for building the
+.Nm libWad
+static library.
+.It Pa p3.txt
+Project report file (presumably).
+.El
+.Sh DATA STRUCTURES
+The following data structures are used to manage the WAD file's content in memory:
+.Bl -tag -width -indent
+.It Bq ElementNode Struct
+The core structure representing a file or directory within the WAD. Stores offset, length, number of children, name, and type (0=content, 1=map directory, 2=namespace directory). Directory nodes maintain a list of pointers to their children.
+.It Bq Hashmap (string -> ElementNode*)
+Maps a full path string (e.g., "/GRAPHICS/WALL.PNG") directly to its corresponding
+.Bq ElementNode
+pointer. This allows for O(1) average time complexity for path existence checks and node retrieval. It also simplifies finding parent directories.
+.It Bq Multi Node-Tree (ElementNode*)
+Represents the hierarchical directory structure, starting from a root
+.Bq ElementNode .
+This tree structure inherently maintains the parent-child relationships as defined in the WAD file, preserving the original descriptor order which is crucial for correctly saving changes back to the WAD file.
+.El
+.Pp
+These structures are populated by functions within
+.Pa file_utils.cpp / .h
+after the WAD header and descriptors are read. This separation of concerns facilitates modularity and testing. Simple structs mirroring the on-disk format are used initially to hold the header and descriptor data read from the file.
+.Sh LIBRARY FUNCTIONS (Wad Class)
+The
+.Nm Wad
+class provides the public interface for interacting with the loaded WAD data.
+.Ss Required Functions
+.Bl -tag -width -indent
+.It Fn isContent "const string &path"
+Returns true if the given
+.Ar path
+exists and corresponds to a content lump (file), false otherwise. Uses the hashmap for lookup.
+.It Fn isDirectory "const string &path"
+Returns true if the given
+.Ar path
+exists and corresponds to a directory lump (map or namespace), false otherwise. Uses the hashmap for lookup.
+.It Fn getSize "const string &path"
+Returns the size (length) in bytes of the content lump specified by
+.Ar path .
+Returns -1 or throws an exception if the path does not exist or is not content. Uses the hashmap to find the node.
+.It Fn getContents "const string &path, char *buffer, int length, int offset=0"
+Reads up to
+.Ar length
+bytes of data from the content lump specified by
+.Ar path ,
+starting
+.Ar offset
+bytes into the lump's data, and stores it in the provided
+.Ar buffer .
+Returns the number of bytes actually read.
+.It Fn getDirectory "const string &path, vector<string> *directory"
+If
+.Ar path
+corresponds to a directory, this function populates the provided
+.Ar directory
+vector with the names of the immediate children (files and subdirectories) within that directory. Returns 0 on success, error code otherwise.
+.It Fn createDirectory "const string &path"
+Creates a new namespace directory (type 2) at the specified
+.Ar path .
+This involves adding a new
+.Bq ElementNode
+to the parent directory's children list in the tree, adding the new node to the hashmap, and calling
+.Fn saveWad
+to update the WAD file on disk. Returns 0 on success, error code otherwise (e.g., path exists, parent does not exist).
+.It Fn createFile "const string &path"
+Creates a new, empty content lump (type 0, zero length/offset) at the specified
+.Ar path .
+Similar to
+.Fn createDirectory ,
+it updates the tree and hashmap and calls
+.Fn saveWad .
+Returns 0 on success, error code otherwise.
+.It Fn writeToFile "const string &path, const char *buffer, int length, int offset=0"
+Writes
+.Ar length
+bytes from the provided
+.Ar buffer
+to the content lump specified by
+.Ar path ,
+starting at the lump's data position plus
+.Ar offset .
+This operation may require reallocating space within the WAD file's data section. It updates the node's length if necessary and calls
+.Fn saveWad
+to persist changes. Returns the number of bytes written.
+.El
+.Ss Private Methods
+.Bl -tag -width -indent
+.It Fn seperate_path "const string &path"
+Internal helper to split a full path (e.g., "/DIR/FILE") into its parent component ("/DIR") and child component ("FILE").
+.It Fn trimPath "const string &path"
+Internal helper to remove any trailing slash characters ('/') from a path string.
+.It Fn readWadData "char *buffer, uint32_t length, uint32_t offset"
+Low-level helper function to read raw bytes directly from the loaded WAD file data based on offset and length.
+.It Fn pathExists "const string &path"
+Internal helper performing a quick check using the hashmap to determine if a given path key exists.
+.It Fn saveWad ""
+Crucial private method responsible for persisting the in-memory state back to the WAD file. It traverses the
+.Bq ElementNode
+tree, generates a new list of descriptors reflecting the current structure, updates the WAD header (descriptor count, descriptor offset), and writes the updated header and descriptor list back to the .wad file on disk.
+.It Fn createAnyFile "const string &parentPath, const string& childName, int type"
+Internal helper function used by both
+.Fn createDirectory
+and
+.Fn createFile
+to handle the common logic of instantiating a new
+.Bq ElementNode ,
+adding it to the tree and hashmap, and updating relevant parent/child links.
+.El
+.Sh DAEMON IMPLEMENTATION (wadfs main)
+The main executable
+.Nm wadfs
+parses command-line arguments to obtain the path to the WAD file and the desired mount point directory. It instantiates a
+.Nm Wad
+object, loading the specified WAD file and building the internal data structures (tree, hashmap). This
+.Nm Wad
+object instance is then passed as private data to the FUSE library during initialization (via
+.Fn fuse_main ). This allows the FUSE callback functions to access the
+.Nm Wad
+object's methods to interact with the WAD data.
+.Pp
+The program then enters the FUSE main loop, effectively becoming a background daemon process. It waits for filesystem operation requests from the kernel (triggered by user actions like
+.Cm ls ,
+.Cm cd ,
+.Cm cat
+in the mount point). When a request arrives, FUSE invokes the corresponding registered callback function (e.g.,
+.Fn wad_getattr ,
+.Fn wad_readdir ).
+.Sh CALLBACK FUNCTIONS (FUSE Integration)
+These C-style functions serve as the bridge between the FUSE library and the C++
+.Nm Wad
+class methods. They typically retrieve the pointer to the
+.Nm Wad
+object from the FUSE private data context and then call the appropriate class method.
+.Bl -tag -width -indent
+.It Fn wad_getattr "(const char *path, struct stat *stbuf)"
+Called by FUSE to get file attributes (e.g., for
+.Cm ls -l ).
+It retrieves the
+.Nm Wad
+object, converts the C-string
+.Ar path
+to a C++ string, and calls
+.Fn pathExists ,
+.Fn isDirectory ,
+.Fn isContent ,
+and
+.Fn getSize
+on the
+.Nm Wad
+object. Based on the results, it fills the
+.Ar stbuf
+(stat structure) with appropriate information like file type (directory/regular file), permissions (likely fixed standard permissions), size, and timestamps (potentially fixed or derived from WAD metadata if available). Returns 0 on success, or
+.Er ENOENT
+if the path does not exist.
+.It Fn wad_mknod "(const char *path, mode_t mode, dev_t rdev)"
+Called by FUSE when creating a new file (e.g., via
+.Cm touch
+or redirection
+.Cm > ).
+It retrieves the
+.Nm Wad
+object and calls its
+.Fn createFile
+method with the given
+.Ar path .
+Ignores
+.Ar mode
+and
+.Ar rdev
+for this simple filesystem. Returns 0 on success,
+.Er EEXIST
+if the path already exists, or
+.Er ENOENT
+if the parent directory does not exist.
+.It Fn wad_mkdir "(const char *path, mode_t mode)"
+Called by FUSE for
+.Cm mkdir .
+It retrieves the
+.Nm Wad
+object and calls its
+.Fn createDirectory
+method with the given
+.Ar path .
+Ignores
+.Ar mode .
+Returns 0 on success,
+.Er EEXIST
+if the path already exists, or
+.Er ENOENT
+if the parent directory does not exist.
+.It Fn wad_read "(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)"
+Called by FUSE to read data from a file (e.g.,
+.Cm cat ).
+It retrieves the
+.Nm Wad
+object and calls its
+.Fn getContents
+method, passing the
+.Ar path ,
+.Ar buf
+(buffer to fill),
+.Ar size
+(max bytes to read), and
+.Ar offset
+(position within the file to start reading). Returns the number of bytes actually read.
+.It Fn wad_write "(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)"
+Called by FUSE to write data to a file (e.g., saving from an editor, redirection). It retrieves the
+.Nm Wad
+object and calls its
+.Fn writeToFile
+method, passing the
+.Ar path ,
+.Ar buf
+(buffer containing data to write),
+.Ar size
+(bytes to write), and
+.Ar offset .
+Returns the number of bytes actually written.
+.It Fn wad_readdir "(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)"
+Called by FUSE to list directory contents (e.g.,
+.Cm ls ).
+It retrieves the
+.Nm Wad
+object and calls its
+.Fn getDirectory
+method to get a list (vector) of child names for the given
+.Ar path .
+It must first call the
+.Ar filler
+function provided by FUSE for "." and "..". Then, it iterates through the vector of child names returned by
+.Fn getDirectory
+and calls the
+.Ar filler
+function for each name. The
+.Ar filler
+function adds the entry to the directory listing buffer
+.Ar buf .
+Returns 0 on success.
+.El
+.Sh TESTING METHODOLOGY
+.Ss Library Testing
+The
+.Nm libWad
+library was tested independently before integration with FUSE.
+.Bl -enum -offset indent
+.It
+Structure Generation: Test cases involved creating known
+.Sq Descriptor
+vectors manually and feeding them to the
+.Nm file_utils
+functions. The resulting
+.Bq ElementNode
+tree and hashmap were inspected to verify correctness against the expected structure.
+.It
+File I/O & Functions: Tests involved reading actual sample WAD files (header and descriptors). The library functions (
+.Fn isContent ,
+.Fn getContents ,
+.Fn getSize ,
+.Fn getDirectory ,
+.Fn createFile ,
+.Fn createDirectory ,
+.Fn writeToFile
+etc.) were then called with various valid and invalid paths, offsets, and data. Assertions checked for expected return values, correct data reads, and proper modification of the internal structures (verified by subsequent reads or structure inspection). The
+.Fn saveWad
+functionality was implicitly tested by checking if changes made via functions like
+.Fn createFile
+were correctly reflected in the descriptor list generated during the save process.
+.El
+.Ss Daemon Testing
+End-to-end testing was performed by compiling the
+.Nm wadfs
+executable and mounting a sample WAD file.
+.Bl -enum -offset indent
+.It
+Create a temporary mount point directory:
+.Bd -literal -offset indent
+$ mkdir /tmp/wad_mount
+.Ed
+.It
+Run the FUSE daemon, mounting a sample WAD file:
+.Bd -literal -offset indent
+$ ./wadfs/fuse_program path/to/sample.wad /tmp/wad_mount
+.Ed
+.It
+In a separate terminal, navigate into the mount point:
+.Bd -literal -offset indent
+$ cd /tmp/wad_mount
+.Ed
+.It
+Execute standard filesystem commands to test functionality:
+.Bl -bullet -offset indent
+.It
+List files and directories, checking attributes:
+.Bd -literal -offset indent
+$ ls -lA
+.Ed
+.It
+Create a new directory:
+.Bd -literal -offset indent
+$ mkdir MY_NEW_DIR
+$ ls
+.Ed
+.It
+Create a new empty file:
+.Bd -literal -offset indent
+$ touch MY_NEW_FILE.txt
+$ ls -l MY_NEW_FILE.txt
+.Ed
+.It
+Write data to the new file:
+.Bd -literal -offset indent
+$ echo "Test content" > MY_NEW_FILE.txt
+.Ed
+.It
+Read data from an existing file within the WAD:
+.Bd -literal -offset indent
+$ cat EXISTING_WAD_LUMP
+.Ed
+.It
+Read data from the newly created and written file:
+.Bd -literal -offset indent
+$ cat MY_NEW_FILE.txt
+.Ed
+.It
+Attempt operations expected to fail (e.g., creating duplicates, invalid paths):
+.Bd -literal -offset indent
+$ mkdir MY_NEW_DIR   # Should fail (exists)
+$ touch /nonexistent_parent/file # Should fail (ENOENT)
+.Ed
+.El
+.It
+Navigate out of the mount point:
+.Bd -literal -offset indent
+$ cd ..
+.Ed
+.It
+Unmount the filesystem:
+.Bd -literal -offset indent
+$ fusermount -u /tmp/wad_mount
+.Ed
+.It
+Verify Persistence: Remount the same WAD file and check if the created directory (`MY_NEW_DIR`) and file (`MY_NEW_FILE.txt` with its content) are still present, indicating successful saving by `saveWad`.
+.Bd -literal -offset indent
+$ ./wadfs/fuse_program path/to/sample.wad /tmp/wad_mount
+$ cd /tmp/wad_mount
+$ ls -lA
+$ cat MY_NEW_FILE.txt
+$ cd ..
+$ fusermount -u /tmp/wad_mount
+.Ed
+.El
+.Sh BUGS
+.Bl -bullet -offset indent
+.It
+Root directory edge cases: Initially, the path separation utility incorrectly handled the root path ("/"), leading to issues when creating files or directories directly under root. This required adding a specific check for the root path.
+.It
+FUSE write callback implementation: An early bug involved incorrect handling of offsets or lengths in the `wad_write` callback, leading to data corruption or incorrect file sizes after writing. This was resolved by carefully aligning the FUSE write parameters with the `Wad::writeToFile` logic, especially concerning how new data might replace or extend existing lump data. (The user input was cut off here).
+.El
+.Sh VIDEO DEMONSTRATION
+A screencast demonstrating the build process, mounting the filesystem, and executing test commands might be available. [Link Here if applicable]
+.Sh REFERENCES
+.Bl -tag -width Ds -compact
+.It Project 3 Report Guidelines PDF
+.It Pa https://youtu.be/UTsEfpX_D8g
+.It Pa https://www.cs.nmsu.edu/~pfeiffer/fuse-tutorial/html/
+.It Pa https://engineering.facile.it/blog/eng/write-filesystem-fuse/
+.It Pa https://maastaar.net/fuse/linux/filesystem/c/2019/09/28/writing-less-simple-yet-stupid-filesystem-using-FUSE-in-C/
+.It Pa https://www.cs.hmc.edu/~geoff/classes/hmc.cs137.201601/homework/fuse/fuse_doc.html
+.It Pa https://slade.mancubus.net/index.php?page=about
+.El

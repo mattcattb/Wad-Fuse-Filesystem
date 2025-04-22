@@ -75,6 +75,7 @@ static int wad_mknod( const char *path, mode_t mode, dev_t rdev )
 
   string parentPath = get_parent_path_safe(pathString);
   if (!currentWad->isDirectory(parentPath)){
+    // the parent path is not a directory, or is a map directory (cannot add files here!)
     return -ENOENT;
   }  
   currentWad->createFile(pathString);
@@ -99,25 +100,6 @@ static int wad_mkdir( const char* path, mode_t mode )
   curWad->createDirectory(pathString);
 	
 	return 0;
-}
-
-
-int wad_open(const char *path, struct fuse_file_info *fi)
-{
-  Wad* currentWad = WAD_DATA;
-  string pathString(path);
-
-  if (!currentWad->isContent(pathString)) {
-    // Path is not content, check if directory
-    if (currentWad->isDirectory(pathString)) {
-        return -EISDIR; // Cannot open directories
-    } else {
-        // path doesn't exist
-        return -ENOENT;
-    }
-  }
-    
-  return 0;
 }
 
 
