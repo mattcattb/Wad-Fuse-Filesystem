@@ -3,23 +3,23 @@
 ## Installation
 
 ### 1. Install libfuse
-'''bash
+```bash
 sudo apt install libfuse-dev fuse
 sudo chmod 666 /dev/fuse
-'''
+```
 
 ### 2. Make files
-'''bash
+```bash
 cd libWad 
 make
 cd ..
 cd wadfs
 make
 cd ..
-'''
+```
 
 ### 3. Run Fuse with a sample wad directory and a created mount directory
-'''bash
+```bash
 mkdir exampleMountDir
 ./wadfs/fuse_program -s example/.wad ./exampleMountDir
-'''
+```
