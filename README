@@ -21,5 +21,5 @@ cd ..
 ### 3. Run Fuse with a sample wad directory and a created mount directory
 '''bash
 mkdir exampleMountDir
-./wadfs/fuse_program -s example/.wad ./exampleMountDir
+./wadfs/wadfs -s example/.wad ./exampleMountDir
 '''
