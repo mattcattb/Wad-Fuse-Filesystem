@@ -11,242 +11,27 @@ Running main() from /home/reptilian/wad/test-workspace/googletest/googletest/src
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
 deleting wad
 yay
-[       OK ] LibReadTests.getMagic (7 ms)
+[       OK ] LibReadTests.getMagic (5 ms)
 [ RUN      ] LibReadTests.isContent
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0/01.txt
-trimming path for /E1M0/05.txt
-trimming path for /Gl/ad/os/cake.jpg
-trimming path for /mp.txt
-trimming path for /E1M0
-trimming path for /Gl/ad
-trimming path for /Gl/ad/os
-trimming path for /
-trimming path for /Fake/
-trimming path for /notreal/
-trimming path for /NotAFile
-trimming path for /fake.jpg
-trimming path for /not/a/real/file/text.txt
-trimming path for /file.mp3
-trimming path for 
 deleting wad
 yay
-[       OK ] LibReadTests.isContent (1 ms)
+[       OK ] LibReadTests.isContent (3 ms)
 [ RUN      ] LibReadTests.isDirectory
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0
-trimming path for /Gl/ad
-trimming path for /Gl/ad/os
-trimming path for /
-trimming path for /E1M0/01.txt
-trimming path for /E1M0/05.txt
-trimming path for /Gl/ad/os/cake.jpg
-trimming path for /mp.txt
-trimming path for /Fa/
-trimming path for /Dr/
-trimming path for /NotAFile
-trimming path for /fake.jpg
-trimming path for /no/t/ar/ea/l/di/r/text.txt
-trimming path for /file.mp3
 deleting wad
 yay
-[       OK ] LibReadTests.isDirectory (15 ms)
+[       OK ] LibReadTests.isDirectory (11 ms)
 [ RUN      ] LibReadTests.getSize
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0/01.txt
-trimming path for /E1M0/01.txt
-trimming path for /E1M0/05.txt
-trimming path for /E1M0/05.txt
-trimming path for /E1M0/09.txt
-trimming path for /E1M0/09.txt
-trimming path for /E1M0/10.txt
-trimming path for /E1M0/10.txt
-trimming path for /Gl/ad/os/cake.jpg
-trimming path for /Gl/ad/os/cake.jpg
-trimming path for /mp.txt
-trimming path for /mp.txt
-trimming path for /E1M0
-trimming path for /E1M0
-trimming path for /Gl/ad/
-trimming path for /Gl/ad
-trimming path for /Gl/ad
-trimming path for /Gl/ad
-trimming path for /Gl/ad/os/
-trimming path for /Gl/ad/os
-trimming path for /E1M1
-trimming path for /E1M1
-trimming path for /Ex/
-trimming path for /Ex
-trimming path for /Fi/le
-trimming path for /Fi/le
-trimming path for /file.jpg
-trimming path for /file.jpg
-trimming path for 
-trimming path for 
 deleting wad
 yay
 [       OK ] LibReadTests.getSize (1 ms)
@@ -254,350 +39,58 @@ yay
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0/01.txt
-trimming path for /E1M0/01.txt
-trimming path for /E1M0/01.txt
-trimming path for /E1M0/01.txt
 [INFO]: length 17 offset 0
+reading in a length 17at offset 0 and actual WAD offset 12
 deleting wad
 yay
-[       OK ] LibReadTests.getContentsTest1 (1 ms)
+[       OK ] LibReadTests.getContentsTest1 (6 ms)
 [ RUN      ] LibReadTests.getContentsTest2
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /mp.txt
-trimming path for /mp.txt
 [INFO]: length 17 offset 117
+reading in a length 17at offset 117 and actual WAD offset 30136
 deleting wad
 yay
-[       OK ] LibReadTests.getContentsTest2 (1 ms)
+[       OK ] LibReadTests.getContentsTest2 (8 ms)
 [ RUN      ] LibReadTests.getContentsTest3
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0/03.txt
-trimming path for /E1M0/03.txt
 [INFO]: length 1000 offset 7
-../libtest.cpp:189: Failure
-Expected equality of these values:
-  retValue
-    Which is: 1000
-  expectedStringLen
-    Which is: 5
-[  FAILED  ] LibReadTests.getContentsTest3 (1 ms)
+reading in a length 5at offset 7 and actual WAD offset 48
+deleting wad
+yay
+[       OK ] LibReadTests.getContentsTest3 (4 ms)
 [ RUN      ] LibReadTests.getContentsTest4
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0/03.txt
-trimming path for /E1M0/03.txt
 [INFO]: length 5 offset 1000
-../libtest.cpp:210: Failure
-Expected equality of these values:
-  retValue
-    Which is: 5
-  0
-[  FAILED  ] LibReadTests.getContentsTest4 (2 ms)
+[INFO]: offset 1000 >= file length 5 so no data will be written!
+deleting wad
+yay
+[       OK ] LibReadTests.getContentsTest4 (2 ms)
 [ RUN      ] LibReadTests.getContentsTest5
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /ba/dfile
-trimming path for /ba/dfile
 [ERROR]: get contents path /ba/dfile is not content!
 deleting wad
 yay
-[       OK ] LibReadTests.getContentsTest5 (2 ms)
+[       OK ] LibReadTests.getContentsTest5 (3 ms)
 [ RUN      ] LibReadTests.getContentsTest6
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/
-trimming path for /Gl
 [ERROR]: get contents path /Gl is not content!
 deleting wad
 yay
-[       OK ] LibReadTests.getContentsTest6 (3 ms)
+[       OK ] LibReadTests.getContentsTest6 (4 ms)
 [ RUN      ] LibReadTests.getContentsTest7
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for 
-trimming path for 
 [ERROR]: get contents path  is not content!
 deleting wad
 yay
@@ -606,50 +99,8 @@ yay
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/ad/os/cake.jpg
-trimming path for /Gl/ad/os/cake.jpg
-trimming path for /Gl/ad/os/cake.jpg
-trimming path for /Gl/ad/os/cake.jpg
 [INFO]: length 29869 offset 0
+reading in a length 29869at offset 0 and actual WAD offset 150
 deleting wad
 yay
 [       OK ] LibReadTests.getContentsTest8 (3 ms)
@@ -657,47 +108,6 @@ yay
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0/
-trimming path for /E1M0
 deleting wad
 yay
 [       OK ] LibReadTests.getDirectoryTest1 (3 ms)
@@ -705,191 +115,27 @@ yay
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/ad
-trimming path for /Gl/ad
 deleting wad
 yay
-[       OK ] LibReadTests.getDirectoryTest2 (6 ms)
+[       OK ] LibReadTests.getDirectoryTest2 (5 ms)
 [ RUN      ] LibReadTests.getDirectoryTest3
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /
-trimming path for /
 deleting wad
 yay
-[       OK ] LibReadTests.getDirectoryTest3 (7 ms)
+[       OK ] LibReadTests.getDirectoryTest3 (3 ms)
 [ RUN      ] LibReadTests.getDirectoryTest4
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /no/t/re/al
-trimming path for /no/t/re/al
 deleting wad
 yay
-[       OK ] LibReadTests.getDirectoryTest4 (8 ms)
+[       OK ] LibReadTests.getDirectoryTest4 (3 ms)
 [ RUN      ] LibReadTests.getDirectoryTest5
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /mp.txt
-trimming path for /mp.txt
 deleting wad
 yay
 [       OK ] LibReadTests.getDirectoryTest5 (3 ms)
@@ -897,679 +143,130 @@ yay
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for 
 deleting wad
 yay
 [       OK ] LibReadTests.getDirectoryTest6 (3 ms)
-[----------] 18 tests from LibReadTests (79 ms total)
+[----------] 18 tests from LibReadTests (80 ms total)
 
 [----------] 16 tests from LibWriteTests
 [ RUN      ] LibWriteTests.createDirectoryTest1
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /ex/
-[WARN] did not fully read file, only read 0 bytes
-[WARN] did not fully read file, only read 0 bytes
-trimming path for /ex/
-../libtest.cpp:418: Failure
-Value of: testWad->isDirectory(testPath)
-  Actual: false
-Expected: true
-[  FAILED  ] LibWriteTests.createDirectoryTest1 (3 ms)
+saving wad with 21 descriptors, while header says there are 21 num descriptors
+deleting wad
+yay
+Current working directory: /home/reptilian/p3/test-workspace
+[info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
+(WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 21 descriptor offset: 30417
+deleting wad
+yay
+[       OK ] LibWriteTests.createDirectoryTest1 (3 ms)
 [ RUN      ] LibWriteTests.createDirectoryTest2
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/ex
-[WARN] did not fully read file, only read 0 bytes
-[WARN] did not fully read file, only read 0 bytes
-trimming path for /Gl/ex
-../libtest.cpp:471: Failure
-Value of: testWad->isDirectory(testPath)
-  Actual: false
-Expected: true
-[  FAILED  ] LibWriteTests.createDirectoryTest2 (3 ms)
+saving wad with 21 descriptors, while header says there are 21 num descriptors
+deleting wad
+yay
+Current working directory: /home/reptilian/p3/test-workspace
+[info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
+(WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 21 descriptor offset: 30417
+deleting wad
+yay
+[       OK ] LibWriteTests.createDirectoryTest2 (3 ms)
 [ RUN      ] LibWriteTests.createDirectoryTest3
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /ex/
-[WARN] did not fully read file, only read 0 bytes
-[WARN] did not fully read file, only read 0 bytes
-trimming path for /ex/
-../libtest.cpp:524: Failure
-Value of: testWad->isDirectory(testPath)
-  Actual: false
-Expected: true
-[  FAILED  ] LibWriteTests.createDirectoryTest3 (3 ms)
+saving wad with 21 descriptors, while header says there are 21 num descriptors
+saving wad with 23 descriptors, while header says there are 23 num descriptors
+deleting wad
+yay
+Current working directory: /home/reptilian/p3/test-workspace
+[info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
+(WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 23 descriptor offset: 30417
+deleting wad
+yay
+[       OK ] LibWriteTests.createDirectoryTest3 (3 ms)
 [ RUN      ] LibWriteTests.createDirectoryTest4
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/exam/
 [ERROR]: filenameexamis too large to be a proper directory name!
-trimming path for /Gl/exam/
-trimming path for /Gl/exam/
-trimming path for /Gl/exam/
-trimming path for /Gl/exam
-trimming path for /Gl
-trimming path for /Gl
 deleting wad
 yay
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/exam/
-trimming path for /Gl/exam/
-trimming path for /Gl/exam/
-trimming path for /Gl/exam
-trimming path for /Gl
-trimming path for /Gl
 deleting wad
 yay
-[       OK ] LibWriteTests.createDirectoryTest4 (3 ms)
+[       OK ] LibWriteTests.createDirectoryTest4 (2 ms)
 [ RUN      ] LibWriteTests.createDirectoryTest5
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Ex/am/
 [ERROR]: parent path /Ex is not a directory in the filesystem.
-trimming path for /Ex/am/
-trimming path for /Ex/am/
-trimming path for /Ex/
-trimming path for /Ex/
-trimming path for /
-trimming path for /
 deleting wad
 yay
-[       OK ] LibWriteTests.createDirectoryTest5 (3 ms)
+[       OK ] LibWriteTests.createDirectoryTest5 (2 ms)
 [ RUN      ] LibWriteTests.createDirectoryTest6
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M1/
 [ERROR]: filenameE1M1is too large to be a proper directory name!
-trimming path for /E1M1/
-trimming path for /E1M1/
-trimming path for /
-trimming path for /
 deleting wad
 yay
-[       OK ] LibWriteTests.createDirectoryTest6 (3 ms)
+[       OK ] LibWriteTests.createDirectoryTest6 (2 ms)
 [ RUN      ] LibWriteTests.createDirectoryTest7
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0/E1M1/
 [ERROR]: filenameE1M1is too large to be a proper directory name!
-trimming path for /E1M0/E1M1/
-trimming path for /E1M0/E1M1/
-trimming path for /E1M0/
-trimming path for /E1M0
 deleting wad
 yay
-[       OK ] LibWriteTests.createDirectoryTest7 (3 ms)
+[       OK ] LibWriteTests.createDirectoryTest7 (2 ms)
 [ RUN      ] LibWriteTests.createFileTest1
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /file.txt
-[WARN] did not fully read file, only read 0 bytes
-[WARN] did not fully read file, only read 0 bytes
-trimming path for /file.txt
-../libtest.cpp:746: Failure
-Value of: testWad->isContent(testPath)
-  Actual: false
-Expected: true
-[  FAILED  ] LibWriteTests.createFileTest1 (3 ms)
+saving wad with 20 descriptors, while header says there are 20 num descriptors
+deleting wad
+yay
+Current working directory: /home/reptilian/p3/test-workspace
+[info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
+(WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 20 descriptor offset: 30417
+deleting wad
+yay
+[       OK ] LibWriteTests.createFileTest1 (4 ms)
 [ RUN      ] LibWriteTests.createFileTest2
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/ad/example
-[WARN] did not fully read file, only read 0 bytes
-[WARN] did not fully read file, only read 0 bytes
-trimming path for /Gl/ad/
-trimming path for /Gl/ad
-trimming path for /Gl/ad/example
-../libtest.cpp:792: Failure
-Value of: testWad->isContent(testPath)
-  Actual: false
-Expected: true
-[  FAILED  ] LibWriteTests.createFileTest2 (10 ms)
+saving wad with 20 descriptors, while header says there are 20 num descriptors
+deleting wad
+yay
+Current working directory: /home/reptilian/p3/test-workspace
+[info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
+(WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 20 descriptor offset: 30417
+deleting wad
+yay
+[       OK ] LibWriteTests.createFileTest2 (12 ms)
 [ RUN      ] LibWriteTests.createFileTest3
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/ad/example.txt
 [ERROR]: filename example.txt is too large to be a proper content name!
 [ERROR]: filename example.txt is not a content name!
-trimming path for /Gl/ad/
-trimming path for /Gl/ad
-trimming path for /Gl/ad/example.txt
-trimming path for /Gl/ad/example.txt
 deleting wad
 yay
-[       OK ] LibWriteTests.createFileTest3 (3 ms)
+[       OK ] LibWriteTests.createFileTest3 (2 ms)
 [ RUN      ] LibWriteTests.createFileTest4
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Gl/ex/example.txt
 [ERROR]: filename example.txt is too large to be a proper content name!
 [ERROR]: filename example.txt is not a content name!
-trimming path for /Gl/ex/example.txt
-trimming path for /Gl/ex/example.txt
-trimming path for /Gl/ex
-trimming path for /Gl/ex
 deleting wad
 yay
 [       OK ] LibWriteTests.createFileTest4 (2 ms)
@@ -1577,200 +274,42 @@ yay
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M0/file.txt
-[ERROR]: parent directory of type 1 is not a named directory!trimming path for /E1M0/file.txt
-trimming path for /E1M0/file.txt
-trimming path for /E1M0/
-trimming path for /E1M0
-deleting wad
+[ERROR]: parent directory of type 1 is not a named directory!deleting wad
 yay
-[       OK ] LibWriteTests.createFileTest5 (3 ms)
+[       OK ] LibWriteTests.createFileTest5 (2 ms)
 [ RUN      ] LibWriteTests.createFileTest6
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /E1M1
 [ERROR]: filename E1M1 is not a content name!
-trimming path for /E1M1
-trimming path for /E1M1
-trimming path for /
-trimming path for /
 deleting wad
 yay
-[       OK ] LibWriteTests.createFileTest6 (3 ms)
+[       OK ] LibWriteTests.createFileTest6 (2 ms)
 [ RUN      ] LibWriteTests.writeToFileTest1
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /file.txt
-[WARN] did not fully read file, only read 0 bytes
-[WARN] did not fully read file, only read 0 bytes
-trimming path for /file.txt
-../libtest.cpp:939: Failure
-Value of: testWad->isContent(testPath)
-  Actual: false
-Expected: true
-[  FAILED  ] LibWriteTests.writeToFileTest1 (3 ms)
+saving wad with 20 descriptors, while header says there are 20 num descriptors
+saving wad with 20 descriptors, while header says there are 20 num descriptors
+[INFO]: length 57 offset 0
+reading in a length 57at offset 0 and actual WAD offset 30417
+deleting wad
+yay
+Current working directory: /home/reptilian/p3/test-workspace
+[info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
+(WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 20 descriptor offset: 30474
+[INFO]: length 57 offset 0
+reading in a length 57at offset 0 and actual WAD offset 30417
+[ERROR]: file is nonempty, with a length already of 57
+[INFO]: length 57 offset 0
+reading in a length 57at offset 0 and actual WAD offset 30417
+deleting wad
+yay
+[       OK ] LibWriteTests.writeToFileTest1 (3 ms)
 [ RUN      ] LibWriteTests.writeToFileTest2
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
 [ERROR]: file is nonempty, with a length already of 17
 deleting wad
 yay
@@ -1779,118 +318,42 @@ yay
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
 [ERROR]: No path exists with this name!
 deleting wad
 yay
-[       OK ] LibWriteTests.writeToFileTest3 (3 ms)
-[----------] 16 tests from LibWriteTests (62 ms total)
+[       OK ] LibWriteTests.writeToFileTest3 (2 ms)
+[----------] 16 tests from LibWriteTests (57 ms total)
 
 [----------] 1 test from LibFunctionalityTests
 [ RUN      ] LibFunctionalityTests.bigTest
 Current working directory: /home/reptilian/p3/test-workspace
 [info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
 (WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 19 descriptor offset: 30417
-==== WAD /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad ====
-HEADER: 
-	magic: IWAD	descriptor offset: 30417	num descriptors: 19
-File Element Tree: 
-
-    [Namespace Dir] : / offset: 0 length: 0 with 3 children
-      [Map Dir] : E1M0 offset: 0 length: 0 with 10 children
-        [Content] : 01.txt offset: 12 length: 17
-        [Content] : 02.txt offset: 29 length: 12
-        [Content] : 03.txt offset: 41 length: 12
-        [Content] : 04.txt offset: 53 length: 12
-        [Content] : 05.txt offset: 65 length: 12
-        [Content] : 06.txt offset: 77 length: 12
-        [Content] : 07.txt offset: 89 length: 19
-        [Content] : 08.txt offset: 108 length: 19
-        [Content] : 09.txt offset: 127 length: 10
-        [Content] : 10.txt offset: 137 length: 13
-      [Namespace Dir] : Gl offset: 0 length: 0 with 1 children
-        [Namespace Dir] : ad offset: 0 length: 0 with 1 children
-          [Namespace Dir] : os offset: 0 length: 0 with 1 children
-            [Content] : cake.jpg offset: 150 length: 29869
-      [Content] : mp.txt offset: 30019 length: 398
-Key: /, Value: /
-Key: /E1M0, Value: E1M0
-Key: /E1M0/01.txt, Value: 01.txt
-Key: /E1M0/02.txt, Value: 02.txt
-Key: /E1M0/03.txt, Value: 03.txt
-Key: /E1M0/04.txt, Value: 04.txt
-Key: /E1M0/05.txt, Value: 05.txt
-Key: /E1M0/06.txt, Value: 06.txt
-Key: /E1M0/07.txt, Value: 07.txt
-Key: /E1M0/08.txt, Value: 08.txt
-Key: /E1M0/09.txt, Value: 09.txt
-Key: /E1M0/10.txt, Value: 10.txt
-Key: /Gl, Value: Gl
-Key: /Gl/ad, Value: ad
-Key: /Gl/ad/os, Value: os
-Key: /Gl/ad/os/cake.jpg, Value: cake.jpg
-Key: /mp.txt, Value: mp.txt
-trimming path for /Ex
-[WARN] did not fully read file, only read 0 bytes
-[WARN] did not fully read file, only read 0 bytes
-trimming path for /Ex
-../libtest.cpp:1039: Failure
-Value of: testWad->isDirectory("/Ex")
-  Actual: false
-Expected: true
-[  FAILED  ] LibFunctionalityTests.bigTest (3 ms)
-[----------] 1 test from LibFunctionalityTests (3 ms total)
+saving wad with 21 descriptors, while header says there are 21 num descriptors
+saving wad with 23 descriptors, while header says there are 23 num descriptors
+saving wad with 24 descriptors, while header says there are 24 num descriptors
+saving wad with 24 descriptors, while header says there are 24 num descriptors
+[INFO]: length 170 offset 0
+reading in a length 170at offset 0 and actual WAD offset 30417
+saving wad with 26 descriptors, while header says there are 26 num descriptors
+saving wad with 27 descriptors, while header says there are 27 num descriptors
+saving wad with 27 descriptors, while header says there are 27 num descriptors
+[INFO]: length 170 offset 0
+reading in a length 170at offset 0 and actual WAD offset 30587
+deleting wad
+yay
+Current working directory: /home/reptilian/p3/test-workspace
+[info]: loading wad with path /home/reptilian/p3/test-workspace/./testfiles/sample1_copy.wad
+(WAD LOAD OVERVIEW) Magic: IWAD num descriptors: 27 descriptor offset: 30757
+[INFO]: length 170 offset 0
+reading in a length 170at offset 0 and actual WAD offset 30417
+[INFO]: length 170 offset 0
+reading in a length 170at offset 0 and actual WAD offset 30587
+deleting wad
+yay
+[       OK ] LibFunctionalityTests.bigTest (4 ms)
+[----------] 1 test from LibFunctionalityTests (4 ms total)
 
 [----------] Global test environment tear-down
-[==========] 35 tests from 3 test suites ran. (145 ms total)
-[  PASSED  ] 26 tests.
-[  FAILED  ] 9 tests, listed below:
-[  FAILED  ] LibReadTests.getContentsTest3
-[  FAILED  ] LibReadTests.getContentsTest4
-[  FAILED  ] LibWriteTests.createDirectoryTest1
-[  FAILED  ] LibWriteTests.createDirectoryTest2
-[  FAILED  ] LibWriteTests.createDirectoryTest3
-[  FAILED  ] LibWriteTests.createFileTest1
-[  FAILED  ] LibWriteTests.createFileTest2
-[  FAILED  ] LibWriteTests.writeToFileTest1
-[  FAILED  ] LibFunctionalityTests.bigTest
-
- 9 FAILED TESTS
+[==========] 35 tests from 3 test suites ran. (141 ms total)
+[  PASSED  ] 35 tests.

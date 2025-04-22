@@ -10,67 +10,14 @@
 
 using namespace std;
 
-
-int propagateFile(const string path, uint32_t length, uint32_t offset){
-  // propagates wad file forward to make space, updates descriptors if necissary 
-
-  fstream infile (path, ios::binary | ios::in | ios::ate);
-
-  if (!infile.is_open()) {
-    cout << "[ERROR]: Failed to open file " << path << " during propagation" << std::endl;
-    return -1;
-  }
-
-  infile.seekg(0, ios::end);
-  long long size = infile.tellg();
-
-  if (offset > size){
-    cout << "[ERROR]: Offset is beyond filesize!" << endl;
-    infile.close();
-    return -1;
-  }
-
-  infile.seekg(offset);
-  
-  std::vector<char> buffer(size - offset);
-
-  if (!infile.read(buffer.data(), buffer.size())){
-    cout << "[ERROR]: failed to read in binary data from file " << endl;
-    infile.close();
-    return -1;
-  }
-
-  infile.seekg(offset + length);
-  if (!infile.write(buffer.data(), buffer.size())){
-    cout << "[ERROR]: Failed to write buffer to file"<< endl;
-    infile.close();
-    return -1;
-  }
-
-  infile.seekp(offset);
-  std::vector<char> padding(length, 0);
-  if (!infile.write(padding.data(), length)) {
-      std::cerr << "Error writing padding." << std::endl;
-      infile.close();
-      return -1;
-  }
-
-  infile.close();
-
-
-  return length;
-}   
-
 string get_cwd(){
   const size_t size = 1024;
   char buffer[size];
 
   if (getcwd(buffer, size) != NULL) {
-    cout << "Current working directory: " << buffer << endl;
     return string(buffer); // Return the cwd as a string
   }
   else {
-      cerr << "[ERROR]: Problem getting cwd!" << endl;
       return "";
   }
 }
@@ -82,13 +29,6 @@ void printTree(const ElementNode* node, int indent = 0) {
       std::cout << "  ";
   }
   cout << node->elementInfoString() << endl;
-  /*
-  std::cout << (node->type > 0 ? "[D] " : "[F] ") << node->name;
-  if (!node->type == 0) {
-      std::cout << " (Offset: " << node->offset << ", Length: " << node->length << ")";
-  }
-  std::cout << std::endl;
-  */
   // Recursively print children
   for (const ElementNode* child : node->children) {
       printTree(child, indent + 1);
@@ -175,8 +115,6 @@ ElementNode* buildTreeFromDescriptors(const std::vector<Descriptor>& descriptors
         elementStack.pop_back(); 
         elementStack.back()->children.push_back(e);
 
-      } else {
-          cerr << "[ERROR]: Unmatched end marker or trying to pop root." << endl;
       }
     }
   }
@@ -214,28 +152,4 @@ void buildMapElementHelper(ElementNode * root, map<string, ElementNode *> &eleme
     }
     buildMapElementHelper(child, elementMap, newPath);
   }
-}
-
-void cleanupElementMap(std::map<string, ElementNode*>& elementMap) {  
-  // TODO !!!
-}
-
-size_t findEndDescriptorIndex(const vector<Descriptor> desciptors, string path){
-  // given a vector of descriptors, find the descriptor index for the path + _end
-  
-  // if path is a root, descriptor doesnt exist, should be added at the very end!
-  if (path == "/"){
-    return desciptors.size();
-  }
-
-  string desciptorPathName = path + "_end";
-  string curPath = "/";
-
-  for (size_t i = 0; i < desciptors.size(); i += 1){
-    // add and then check of its equal to path+_end
-    
-  }
-
-  cout <<"[WARN]: got to the end of the descriptor list and did not find the proper descriptor" << endl;
-  return -1; // did not find it... something went wrong
 }

@@ -5,7 +5,7 @@
 #include <vector>
 #include <map>
 #include <filesystem>
-
+#include <regex>
 
 using namespace std;
 
@@ -28,9 +28,6 @@ bool Wad::isValidContentName(string & path){
   return false;
 } 
 
-#include <regex>
-
-
 bool Wad::isValidDirectoryName(string & path){
   // has E#M# 
 
@@ -49,19 +46,17 @@ void Wad::print(){
   printTree(this->treeRoot, 2);
 }
 
-int Wad::readWadData(char *buffer, uint32_t length, uint32_t offset){
+uint32_t Wad::readWadData(char *buffer, uint32_t length, uint32_t offset){
   fstream file;
   // cout << "== READ WAD DATA == \n" << "Opening file " << this->absolutePath << endl;
   file.open(this->absolutePath, ios::in | ios::binary);
   if (!file.is_open()){
-    cout << "[ERROR]: problem opening file!" << endl;
     return -1;
   }
 
   file.seekg(offset);
 
   if (file.fail()){
-    cout << "[ERROR]: problem traversing to offset " << offset << endl;
     file.close();
     return -1;
   }
@@ -70,44 +65,9 @@ int Wad::readWadData(char *buffer, uint32_t length, uint32_t offset){
 
   std::streamsize bytesRead = file.gcount();
 
-  if (bytesRead != length){
-    cout << "[WARN] did not fully read file, only read " << bytesRead << " bytes" << endl;
-  }
-  
   file.close();
-  return int(bytesRead);
+  return bytesRead;
 }
-
-int Wad::writeWadData(const char * buffer, uint32_t length, uint32_t offset){
-  // write buffer to wad! 
-  fstream file;
-  // cout << "== READ WAD DATA == \n" << "Opening file " << this->absolutePath << endl;
-  file.open(this->absolutePath, ios::out | ios::binary);
-  if (!file.is_open()){
-    cout << "[ERROR]: problem opening file!" << endl;
-    return -1;
-  }
-
-  file.seekg(offset);
-
-  if (file.fail()){
-    cout << "[ERROR]: problem traversing to offset " << offset << endl;
-    file.close();
-    return -1;
-  }
-
-  file.write(buffer, length);
-
-  std::streamsize bytesRead = file.gcount();
-
-  if (bytesRead != length){
-    cout << "[WARN] did not fully read file, only read " << bytesRead << " bytes" << endl;
-  }
-  
-  file.close();
-  return int(bytesRead);
-}
-
 
 int Wad::loadPhysicalFile(const string &path){
   // physically load in HEADER, DESCRIPTOR LIST!
@@ -121,10 +81,6 @@ int Wad::loadPhysicalFile(const string &path){
   if (readWadData(magic, 4, 0) == -1) return -1;
   if (readWadData((char*)&numDescriptors, 4, 4) == -1) return -1;
   if (readWadData((char*)&descriptorOffset, 4, 8) == -1) return -1;
-
-  cout << "(WAD LOAD OVERVIEW) Magic: " << magic << " "
-  << "num descriptors: " << numDescriptors << " "
-  << "descriptor offset: " << descriptorOffset << std::endl;
 
   header.magic = magic; 
   header.num_descriptors = numDescriptors;
@@ -161,10 +117,6 @@ Wad::Wad(const string &path){
   // takes in wad path to real filesystem, initialize fstream object, store as member variable, use to read
   // header data constructs tree from descriptor list, no lump data reading yet. posix calls?
   this->absolutePath = path;
-
-  cout << "[info]: loading wad with path " << path << endl;
-
-  // load everything but the in memory stuff!
   int r = loadPhysicalFile(path);
 
   if (r == -1){
@@ -175,18 +127,10 @@ Wad::Wad(const string &path){
   
   // build element map
   this->fileMap = buildMapFromElementTree(this->treeRoot);
-
-  print();
-
-  for (std::map<std::string, ElementNode * >::iterator it = fileMap.begin(); it != fileMap.end(); ++it) {
-    std::cout << "Key: " << it->first << ", Value: " << it->second->name << std::endl;
-}
-
 }
 
 string Wad::trimPath(const string &path){
 
-  cout << "trimming path for " << path << endl;
   if (path == "") {
     return "";
   }
@@ -246,11 +190,8 @@ bool Wad::pathExists(const string &path){
 }
 
 Wad::~Wad() {
-  cout << "deleting wad" << endl;
 
   delete treeRoot;
-
-  cout << "yay" << endl;
   fileMap.clear();
 
   treeRoot = nullptr; 
@@ -312,24 +253,24 @@ int Wad::getContents(const string &path, char *buffer, int length, int offset){
   string tPath = trimPath(path);
 
   if (!isContent(tPath)){
-    cout << "[ERROR]: get contents path "<< tPath << " is not content!" << endl;
     return -1;
   }
-
-  cout << "[INFO]: length " << length << " offset " << offset << endl;
 
   ElementNode * contentElement = fileMap[tPath];
   uint32_t fileLength = contentElement->length;
   uint32_t fileOffset = contentElement->offset;
 
+  if (offset >= fileLength) {
+    return 0;
+  }
+
+  // actual offset of the lump in memory (according to where offset to start)
   uint32_t aOffset = fileOffset + offset;
-  uint32_t aLength = min((uint32_t)length, fileLength);
 
-  uint32_t effLength = aLength -offset;
+  // actual length (prevents out of bounds)
+  uint32_t aLength = (length <= fileLength - offset ) ? length : fileLength - offset;
 
-  uint32_t requestedLength = std::max(0, length);
-
-  int bytesRead = readWadData(buffer, requestedLength, aOffset);
+  int bytesRead = readWadData(buffer, aLength, aOffset);
 
   return bytesRead;
 }
@@ -361,7 +302,7 @@ void Wad::createDirectory(const string &path){
   string tPath = trimPath(path);
 
   if (tPath == ""){
-    cout << "[ERROR]: given empty file to create!" << endl;
+    // cout << "[ERROR]: given empty file to create!" << endl;
     return;
   }
 
@@ -374,12 +315,12 @@ void Wad::createDirectory(const string &path){
   }
 
   if (child.length() > 2) {
-    cout << "[ERROR]: filename" << child << "is too large to be a proper directory name!" << endl;
+    // cout << "[ERROR]: filename" << child << "is too large to be a proper directory name!" << endl;
     return;
   }
 
   if (!pathExists(parent)){
-    cout << "[ERROR]: parent path " << parent << " is not a directory in the filesystem." << endl;
+    // cout << "[ERROR]: parent path " << parent << " is not a directory in the filesystem." << endl;
     return;
   }
 
@@ -394,35 +335,31 @@ void Wad::createAnyFile(const string &parentPath, const string& childName, int t
   ElementNode * parentNode = fileMap[parentPath];
   ElementNode * fileNode = new ElementNode(childName, type, 0, 0);
   if(type != 0 && type != 2) {
-    cout << "[ERROR]: INVALID FILE GIVEN!" << type << endl;
+    // cout << "[ERROR]: INVALID FILE GIVEN!" << type << endl;
     return;
   }
 
 
   if (parentNode->type != 2){
-    cout << "[ERROR]: parent directory of type " << parentNode->type << " is not a named directory!";
+    // cout << "[ERROR]: parent directory of type " << parentNode->type << " is not a named directory!";
     return;
   } 
   parentNode->children.push_back(fileNode);
 
+  // add to map
+  string completePath = (parentPath == "/") ? parentPath + childName : parentPath + "/" + childName;
+  fileMap[completePath] = fileNode;
+  
+  // update header
+  header.num_descriptors += (type == 0) ? 1 : 2; // 1 for content, 2 for not content 
 
-  // update header!
-  header.num_descriptors + 1;
-
-  // what if I just recreate map and descriptor list...hmm...
+  // save headers and descriptors based on the new tree!
   if(!saveWad()){
     cout << "[ERROR]: error saving changes to file for new node " << fileNode->name << endl;
     return;
   }
-  // add to map
 
-  if (parentPath == "/"){
-    cout << "parent path is root!";
-  }
-  string completePath = parentPath + "/" + childName;
-  cout << "[INFO] adding path "
 
-  fileMap[]
   return;
 }
 
@@ -440,7 +377,7 @@ void Wad::createFile(const string &path){
   string child = pathSplit[1];
 
   if(child.length() > 8){
-    cout << "[ERROR]: filename " << child << " is too large to be a proper content name!" << endl;
+    // cout << "[ERROR]: filename " << child << " is too large to be a proper content name!" << endl;
   }
 
   if (parent == ""){
@@ -450,20 +387,18 @@ void Wad::createFile(const string &path){
   int childType = getDescriptorNameType(child);
   
   if (childType != 0) {
-    cout << "[ERROR]: filename " <<  child << " is not a content name!" << endl;
+    // cout << "[ERROR]: filename " <<  child << " is not a content name!" << endl;
     return;
   }
 
   if (!pathExists(parent)){
-    cout << "[ERROR]: parent path " << parent << " is not a directory in the filesystem." << endl;
+    // cout << "[ERROR]: parent path " << parent << " is not a directory in the filesystem." << endl;
     return;
   }
 
   createAnyFile(parent, child, childType);
-
 }
 int Wad::writeToFile(const string &path, const char *buffer, int length, int offset){
-  // !!!! NEED TO MAKE SURE EDGE CASES AND BOUNDARIES of write are respected!
   /*
     gets path to EMPTY FILE (-1 if directory or path doesnt exist, 0 if nonempty file)
     read length num bytes from buffer, writes into lump data starting at offset 
@@ -471,26 +406,27 @@ int Wad::writeToFile(const string &path, const char *buffer, int length, int off
     MOVE FORWARD lump data in middle of file to write file contents
   */
 
-  string tPath = path;
+  std::fstream file(absolutePath, std::ios::in | std::ios::out | std::ios::binary);
+  if (!file.is_open()) {
+    return false;
+  }
+
+  string tPath = trimPath(path);
 
   if (!pathExists(tPath)){
-    cout << "[ERROR]: No path exists with this name!" << endl;
     return -1;
   }
 
-  ElementNode * file = fileMap[tPath];
-  if (file->type != 0){
-    cout << "[ERROR]: File " << file->name << " is a directory!" << endl;
+  ElementNode * contentFileElement = fileMap[tPath];
+  if (contentFileElement->type != 0){
     return -1;
   }
 
-  if (file->length != 0){
-    cout << "[ERROR]: file is nonempty, with a length already of " << to_string(file->length) << endl;
+  if (contentFileElement->length != 0){
     return 0; 
   }
 
   if (offset > header.descriptor_offset){
-    cout << "[ERROR]: file write offset of " << offset <<" is beyond the current wad data size!";
     return -1;
   }
 
@@ -501,27 +437,23 @@ int Wad::writeToFile(const string &path, const char *buffer, int length, int off
   if (offset != 0){
     offsetPosition = offset;
   }
-
-  propagateFile(this->absolutePath, length, offsetPosition);
-
-  uint32_t bytesWriten = writeWadData(buffer, length, header.descriptor_offset);
-  file->offset = offsetPosition;
-  file->length = length;
+  
+  contentFileElement->offset = offsetPosition;
+  contentFileElement->length = length;
 
   // now need to update the descriptors and header
+  file.seekg(offsetPosition);
+  file.write(buffer, length);
   header.descriptor_offset += length;
+  file.close();
   
   // save new element files to descriptors
   saveWad();
-
-  // update header to represent new list size!
-  this->header.descriptor_offset = header.descriptor_offset + bytesWriten;
-
-  return 1;
+  return length;
 }
 
 
-void createDesciptorListTreeHelper(vector<Descriptor> descriptors, ElementNode * root){
+void createDesciptorListTreeHelper(vector<Descriptor> &descriptors, ElementNode * root){
   
   Descriptor curDesciptor;
   curDesciptor.name = root->name;
@@ -567,18 +499,31 @@ bool Wad::saveWad(){
   vector<Descriptor> desciptors;
   createDesciptorListTreeHelper(desciptors, this->treeRoot);
 
-  // now go through and save the descriptors
-  for (size_t i = 0; i < desciptors.size(); i += 1){
-    int cur_offset = i *16 + header.descriptor_offset;
-    Descriptor curDesc = desciptors[i];
-    if(writeWadData((char*)&curDesc.offset, 4, cur_offset) == -1) return false;
-    if(writeWadData((char*)&curDesc.length, 4, cur_offset + 4) == -1) return false;
-    if (writeWadData((char*)&curDesc.name, 8, cur_offset + 8) == -1) return false; 
+  std::fstream file(absolutePath, std::ios::in | std::ios::out | std::ios::binary);
+
+  if (!file.is_open()) {
+    return false;
   }
 
-  // now save header data
-  if (writeWadData((char*)&header.num_descriptors, 4, 4) == -1) return false;
-  if (writeWadData((char*)&header.descriptor_offset, 4, 8) == -1) return false;
+  // write num header information
+  file.seekg(4, std::ios::beg);
+  file.write((char*)&header.num_descriptors, sizeof(header.num_descriptors));
+  file.seekp(8, std::ios::beg);
+  file.write(reinterpret_cast<const char*>(&header.descriptor_offset), sizeof(header.descriptor_offset));
+
+  // now go through and save the descriptors
+  for (size_t i = 0; i < desciptors.size(); i += 1){
+    uint32_t cur_offset = i * 16 + header.descriptor_offset;
+    const Descriptor& curDesc = desciptors[i];
+    char nameBuffer[8];
+    std::memset(nameBuffer, 0, sizeof(nameBuffer)); 
+    std::memcpy(nameBuffer, curDesc.name.c_str(), std::min(curDesc.name.length(), sizeof(nameBuffer)));
+    file.seekp(cur_offset, std::ios::beg);
+    file.write((char* )&curDesc.offset,  sizeof(curDesc.offset));
+    file.write((char*)& curDesc.length ,sizeof(curDesc.length));
+    file.write(nameBuffer, 8);
+  
+  }
 
   return true;
 }

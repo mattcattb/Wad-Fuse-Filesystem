@@ -35,7 +35,7 @@ class Wad {
   vector<string> seperate_path(const string &path);
 
   string trimPath(const string &path);
-  int readWadData(char *buffer, uint32_t length, uint32_t offset);
+  uint32_t readWadData(char *buffer, uint32_t length, uint32_t offset);
   int writeWadData(const char * buffer, uint32_t length, uint32_t offset);
   bool pathExists(const string &path);
 
