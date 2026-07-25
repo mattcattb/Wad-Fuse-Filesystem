@@ -25,7 +25,8 @@ class Wad {
   string absolutePath;
 
   map<string, ElementNode *> fileMap;
-  ElementNode * treeRoot; // file tree, starting with root
+  ElementNode * treeRoot = nullptr; // file tree, starting with root
+  bool valid = false;
 
   int loadPhysicalFile(const string &path); // get the header and descriptors from file
   Wad(const string & path); 
@@ -37,7 +38,7 @@ class Wad {
   bool pathExists(const string &path);
 
   bool saveWad(); // save header and descriptors from element node list 
-  void createAnyFile(const string &parentPath, const string& childName, int type); // create any file and then save desciptors
+  bool createAnyFile(const string &parentPath, const string& childName, int type); // create any file and then save desciptors
 
 
 public:
@@ -46,14 +47,18 @@ public:
   static  Wad* loadWad(const string &path);
 
   ~Wad();
+  bool isValid();
   string getMagic();
+  uint32_t getDescriptorCount();
+  uint32_t getDescriptorOffset();
+  int getType(const string &path);
   bool isContent(const string &path);
   bool isDirectory(const string &path);
   int getSize(const string &path);
   int getContents(const string &path, char *buffer, int length, int offset=0);
   int getDirectory(const string &path, vector<string> *directory);
-  void createDirectory(const string &path);
-  void createFile(const string &path);
+  bool createDirectory(const string &path);
+  bool createFile(const string &path);
   int writeToFile(const string &path, const char *buffer, int length, int offset=0);
 
 };

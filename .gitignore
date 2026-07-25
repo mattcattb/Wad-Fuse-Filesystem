@@ -1,0 +1,5 @@
+/data/
+/wadsrv-bin
+clients/typescript/dist/
+clients/typescript/node_modules/
+clients/typescript/*.tgz

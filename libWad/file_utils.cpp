@@ -69,6 +69,12 @@ ElementNode* buildTreeFromDescriptors(const std::vector<Descriptor>& descriptors
   // remaining elements are in the root
   ElementNode * root = new ElementNode( "/", 2, 0, 0);
   elementStack.push_back(root);
+  const auto cleanup = [&elementStack, root]() {
+    for (size_t index = elementStack.size(); index > 1; --index) {
+      delete elementStack[index - 1];
+    }
+    delete root;
+  };
   
   for (size_t i = 0; i < descriptors.size(); i += 1){  
     Descriptor desc = descriptors[i]; 
@@ -86,7 +92,11 @@ ElementNode* buildTreeFromDescriptors(const std::vector<Descriptor>& descriptors
       // descriptor is a var map
       // cout << "mapped element " << desc.name << endl;
       // we need to add the next 10 here
-      ElementNode * el = new ElementNode(desc.name, type=1);
+      if (i + 10 >= descriptors.size()) {
+        cleanup();
+        return nullptr;
+      }
+      ElementNode * el = new ElementNode(desc.name, 1);
       vector<ElementNode *> mapChildren;
 
       for (size_t j = 1; j <= 10 && i + j < descriptors.size(); ++j) {
@@ -108,19 +118,29 @@ ElementNode* buildTreeFromDescriptors(const std::vector<Descriptor>& descriptors
     } else if (type == 3) {
       // descriptor is a namespace directory end
       // cout << "namespace directory " << desc.name << " end " << endl;
-      if (!elementStack.empty() && elementStack.back() != root) {
+      if (elementStack.size() > 1 && elementStack.back() != root) {
         ElementNode * e = elementStack.back(); 
+        const string endName = desc.name.substr(0, desc.name.length() - 4);
+        const string startName = e->name.substr(0, e->name.length() - 6);
+        if (endName != startName) {
+          cleanup();
+          return nullptr;
+        }
         e->name.erase(e->name.length() - 6, 6);
         
         elementStack.pop_back(); 
         elementStack.back()->children.push_back(e);
 
+      } else {
+        cleanup();
+        return nullptr;
       }
     }
   }
 
-  if (elementStack.empty() || elementStack.back()->name != "/"){
-    cout << "[ERROR]: Last element is not root!" << endl;
+  if (elementStack.size() != 1 || elementStack.back() != root){
+    cleanup();
+    return nullptr;
   }
   // printElementStack(elementStack);
   return elementStack.back();
